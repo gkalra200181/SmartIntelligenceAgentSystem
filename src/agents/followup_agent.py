@@ -1,11 +1,19 @@
 """
 followup_agent.py
 
-Agent that generates a clear follow-up message based on:
+Agent that generates a clear, formatted follow-up message based on:
 - summary
 - refined action items
 - risks
 - themes
+
+The output is a GitHub/Kaggle-friendly Markdown email:
+- Subject line
+- Greeting
+- Summary section
+- Action items as a Markdown table
+- Risks / Themes
+- Closing
 """
 
 from __future__ import annotations
@@ -18,19 +26,36 @@ from src.agents.base_agent import BaseAgent
 SYSTEM_PROMPT = """
 You are a Follow-Up Communication Agent.
 
-Write a clear, concise follow-up message after a meeting that includes:
-- a brief recap of what was discussed,
-- a bullet list of action items (owner, description, due date, priority),
-- a short note on any risks or recurring themes.
+Your job is to write a clear, professional follow-up email after a meeting,
+using GitHub-flavored Markdown so it renders nicely in notebooks and README files.
 
-Tone: professional, calm, and specific.
+Use this output structure:
 
-Return plain text (no JSON).
+1. A subject line starting with: "Subject: ..."
+2. A greeting, e.g. "Hi Team,"
+3. A short paragraph summarizing the meeting.
+4. A section titled "Summary" (as a Markdown heading, e.g. "### Summary")
+5. A section titled "Action Items" with a Markdown table:
+
+   | Owner | Task Description | Due Date | Priority |
+   |-------|------------------|----------|----------|
+   | ...   | ...              | ...      | ...      |
+
+6. A section titled "Risks & Themes" with bullet points. If there are none, say "No major risks identified."
+7. A short closing paragraph and sign-off.
+
+Rules:
+- The tone should be concise, calm, and professional.
+- Use Markdown headings (###) and bullet points where appropriate.
+- Use the structured data provided (summary, actions, risks, themes).
+- If actions list is empty, explicitly say there were no concrete action items, and optionally suggest next steps.
+- Do NOT return JSON.
+- Do NOT wrap the output in backticks or code fences.
 """
 
 
 class FollowupAgent(BaseAgent):
-    """Creates a human-readable follow-up email/message."""
+    """Creates a human-readable, Markdown-formatted follow-up email."""
 
     def run(self, context: Dict[str, Any]) -> Dict[str, Any]:
         summary: str = context.get("summary", "")
@@ -46,7 +71,7 @@ class FollowupAgent(BaseAgent):
         }
 
         user_msg = (
-            "Use the following structured information to write the follow-up.\n\n"
+            "Use the following structured information to write the Markdown email.\n\n"
             f"{json.dumps(payload, indent=2)}"
         )
 
