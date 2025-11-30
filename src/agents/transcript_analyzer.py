@@ -5,6 +5,10 @@ Agent that takes a raw meeting transcript and produces:
 - topics
 - key decisions
 - a concise summary
+
+If the model does not return valid JSON, we gracefully fall back:
+- use the raw response as the summary
+- leave topics/decisions empty
 """
 
 from __future__ import annotations
@@ -22,7 +26,9 @@ Given a raw meeting transcript, you MUST return a JSON object with:
 - "decisions": a short list of important decisions (strings)
 - "summary": a concise 3-5 sentence summary of the meeting.
 
-Return ONLY valid JSON. Do not include backticks.
+Rules:
+- Return ONLY valid JSON. Do not include backticks.
+- Do not wrap the JSON in any explanation.
 """
 
 
@@ -39,16 +45,23 @@ class TranscriptAnalyzerAgent(BaseAgent):
         raw = self.llm.chat(SYSTEM_PROMPT, [{"role": "user", "content": user_msg}])
         context["transcript_analysis_raw"] = raw
 
-        topics, decisions, summary = [], [], ""
+        topics = []
+        decisions = []
+        summary = ""
 
+        # Try strict JSON parsing first
         try:
             data = json.loads(raw)
-            topics = data.get("topics", [])
-            decisions = data.get("decisions", [])
-            summary = data.get("summary", "")
+            topics = data.get("topics", []) or []
+            decisions = data.get("decisions", []) or []
+            summary = data.get("summary", "") or ""
         except Exception:
-            # Fallback if JSON parsing fails
-            summary = "Automatic summary unavailable (JSON parse error)."
+            # If parsing fails, treat the entire raw response as a summary
+            summary = raw.strip()
+
+        # Final safety fallback
+        if not summary:
+            summary = "Summary unavailable. The model did not provide a usable response."
 
         context["topics"] = topics
         context["decisions"] = decisions
