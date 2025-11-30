@@ -29,15 +29,30 @@ def main() -> None:
     meetings: List[Dict[str, Any]] = [
         {
             "path": os.path.join("data", "sample_transcript.txt"),
-          
+            "metadata": {
+                "meeting_id": "meeting-001",
+                "title": "Q4 Onboarding Release Planning",
+                "participants": ["PM", "Engineer", "Designer", "QA Lead", "Support Lead"],
+                "type": "Planning",
+            },
         },
         {
             "path": os.path.join("data", "sample_transcript_2.txt"),
-            
+            "metadata": {
+                "meeting_id": "meeting-002",
+                "title": "Bug Triage & Incident Review",
+                "participants": ["PM", "Engineer", "SRE", "Support Lead"],
+                "type": "Bug Triage",
+            },
         },
         {
             "path": os.path.join("data", "sample_transcript_3.txt"),
-           
+            "metadata": {
+                "meeting_id": "meeting-003",
+                "title": "Sprint Retrospective",
+                "participants": ["PM", "Engineer", "Designer"],
+                "type": "Retro",
+            },
         },
     ]
 
