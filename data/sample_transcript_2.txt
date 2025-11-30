@@ -1,0 +1,23 @@
+Sarah (Designer): Thanks for joining the design review. I’ve updated the onboarding flow visuals based on last week’s feedback.
+
+Jason (PM): Looks good. The team wants fewer steps during the sign-up process. Can we combine the last two screens?
+
+Sarah: Yes, I can merge them. I need copy guidance from Marketing before I finalize.
+
+Emily (Marketing): I’ll provide new copy drafts by tomorrow afternoon.
+
+Alex (Engineer): Once Sarah updates the designs, I can begin implementing the final UI. Implementation will take about 3 days.
+
+Jason (PM): Perfect. Let’s aim for having the final UI in staging by next Tuesday.
+
+QA Lead: I’ll prepare test cases this week and be ready to test as soon as staging is updated.
+
+Jason: Also, we need a decision on the welcome animation. Should we keep it or remove it?
+
+Sarah: I suggest we keep it but simplify the motion.
+
+Alex: Works for me.
+
+Jason: Okay. Sarah, can you provide a simplified animation version?
+
+Sarah: Yes, I’ll do that by Friday.
