@@ -28,7 +28,7 @@ def main() -> None:
     # List of (file_path, metadata) pairs for multiple meetings
     meetings: List[Dict[str, Any]] = [
         {
-            "path": os.path.join("data", "sample_transcript_1.txt"),
+            "path": os.path.join("data", "sample_transcript.txt"),
           
         },
         {
