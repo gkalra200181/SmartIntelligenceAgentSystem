@@ -1,1 +1,19 @@
-Sample meeting transcript.
+Alice (PM): Thanks everyone. Today we need to lock the Q4 launch timeline for the new onboarding flow.
+
+Bob (Engineer): The API integration is 80% done. I still need 3 more days to finish error handling and retries.
+
+Carol (Designer): I’m waiting on final copy for the empty states. Once I get that, I can finish the mobile designs by Friday.
+
+Alice (PM): Okay, let’s make some decisions. Bob, can you commit to finishing the API work by Thursday?
+
+Bob (Engineer): Yes, I can finish by Thursday end of day.
+
+Alice (PM): Great. Carol, please sync with Marketing tomorrow for the copy, and share updated designs with the team by Friday.
+
+Carol (Designer): Will do. I’ll set up a quick meeting with Marketing and post the Figma link in Slack.
+
+Alice (PM): Perfect. I’ll update the release plan and schedule a dry run for next Wednesday with QA and Support.
+
+QA Lead: Next Wednesday works for me. I’ll also prepare a test checklist by Monday.
+
+Support Lead: Same here, I’ll start drafting the FAQ and macro responses for common issues.
