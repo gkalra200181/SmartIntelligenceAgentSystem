@@ -1,0 +1,2 @@
+class PriorityRiskAgent:
+    pass

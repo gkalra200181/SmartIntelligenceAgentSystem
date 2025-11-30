@@ -1,0 +1,2 @@
+class TrendAgent:
+    pass
