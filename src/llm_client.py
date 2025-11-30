@@ -19,7 +19,7 @@ class LLMClient:
     Simple wrapper around a Gemini model for multi-agent calls.
     """
 
-    def __init__(self, model_name: str = "gemini-1.5-flash"):
+    def __init__(self, model_name: str = "gemini-1.5-flash-latest"):
         self.model_name = model_name
 
         # Configure Gemini with API key FROM ENVIRONMENT VARIABLE ONLY.
