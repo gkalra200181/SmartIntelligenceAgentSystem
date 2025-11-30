@@ -1,0 +1,23 @@
+Priya (PM): Today we’re planning tasks for Sprint 14. We need to address user reports around slow load times.
+
+Daniel (Engineer): I found that the bottleneck is our outdated caching layer. I can rewrite it, but it’ll take 4 days.
+
+Priya: Let’s prioritize this for the sprint. Daniel, please proceed.
+
+Liam (Engineer): We should also fix the notifications bug. Users are getting duplicate alerts.
+
+Priya: Good point. Liam, take the lead on that and finish it by Thursday.
+
+Nora (Designer): I’m working on the new dashboard layout, but I need input on analytics requirements.
+
+Priya: I’ll schedule a call with Data Science tomorrow.
+
+Data Scientist: Sure, I’ll join and send initial metric definitions before the call.
+
+QA Lead: Last sprint we had delays due to unclear acceptance criteria. Can we document them early this time?
+
+Priya: Agreed. I’ll write detailed acceptance criteria for all tasks by end of day.
+
+Support Lead: We’re seeing repeated tickets on password reset issues. Could Engineering investigate?
+
+Daniel: I’ll take a look after the caching rewrite.
